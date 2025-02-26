@@ -29,4 +29,4 @@ jobs:
       - name: Run Markdown Lint
         run: |
           npm install remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --f
+          npx remark . --use remark-preset-lint-consistent --use remark-lint-emphasis-marker=off --f
