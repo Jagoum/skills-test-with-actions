@@ -28,5 +28,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run Markdown Lint
         run: |
-          npm install remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --use remark-lint-emphasis-marker=off --f
+          npm install remark-cli remark-preset-lint-consistent vfile-reporter-json
+          npx remark . --use remark-preset-lint-consistent --report vfile-reporter-json 2>
+
+      - uses: actions/upload-artifact@v4
+        with: 
+          name: remark-lint-report
+          path: remark-lint-report.json
